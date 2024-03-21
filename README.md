@@ -55,13 +55,15 @@ See the [Examples](#examples) section for more information on how to use the I²
 ***Wie wäre es mit einem Beispieleabschnitt? Sonst müsste man das bei beiden Getting Started Abschnitten machen, also doppelt. und hier könnte man auch direkt hinspringen, wenn mans schon installiert hat.***
 
 > [!CAUTION]
-> Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior. For neither the authors nor the maintainers of this package can be held responsible for.
+> Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
 
 To send data to an I²C peripheral, you can publish a message to the I²C node. For example, to transmit the byte `0x42` using the command `0x01` to the I²C address `0x42`, you could use the following command:
 
 ```bash
 ros2 topic pub /i2c/write8 "{address: 0x42, command: 0x01, data: 0x42}"
 ```
+
+You can also send 16-bit data using the `write16` topic, or byte arrays using the `write_array` topic. For more information, please refer to the [Documentation](#documentation).
 
 # Features
 
