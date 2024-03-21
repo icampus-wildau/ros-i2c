@@ -65,7 +65,9 @@ ros2 topic pub /i2c/write8 "{address: 0x42, command: 0x01, data: 0x42}"
 
 You can also send 16-bit data using the `write16` topic, or multiple bytes using the `write_array` topic. For more information, please refer to the [Documentation](#documentation) section.
 
-# Features
+# Features & Compatibility
+
+***Vielleicht besser in einem Abschnitt? Mal angenommen, es gäbe features, die nur auf bestimmter hardware/... verfügbar sind, dann könnte man mit z.b. einer tabelle gleich die Kompatibilität festhalten, ohne das darauf noch mal zu wiederholen.***
 
 Features of the I²C-Node:
 - Transmit 8-bit data
@@ -75,8 +77,6 @@ Features of the I²C-Node:
 Future work:
 - scanning for connected peripherals
 - receiving data from peripherals
-
-# Compatibility
 
 The ROS I²C package is designed and tested to work well with ROS 2 (Humble) on a Raspberry Pi 4 (Model B). However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
 
