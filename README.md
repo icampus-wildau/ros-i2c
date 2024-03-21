@@ -52,7 +52,7 @@ See the [Examples](#examples) section for more information on how to use the I²
 
 # Examples
 
-***Wie wäre es mit einem Beispieleabschnitt? Sonst müsste man das bei beiden Getting Started Abschnitten machen, also doppelt. und hier könnte man auch direkt hinspringen, wenn mans schon installiert hat.***
+***Wie wäre es mit einem Beispieleabschnitt? Sonst müsste man das bei beiden Getting Started Abschnitten machen, also doppelt. und hier könnte man auch direkt hinspringen, wenn mans schon installiert hat. Man könnte auch überlege, ob man die Installation/Usage abschnitte dann noch brauch oder das lieber im fluss macht.***
 
 > [!CAUTION]
 > Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
@@ -63,7 +63,7 @@ To send data to an I²C peripheral, you can publish a message to the I²C node. 
 ros2 topic pub /i2c/write8 "{address: 0x42, command: 0x01, data: 0x42}"
 ```
 
-You can also send 16-bit data using the `write16` topic, or byte arrays using the `write_array` topic. For more information, please refer to the [Documentation](#documentation).
+You can also send 16-bit data using the `write16` topic, or multiple bytes using the `write_array` topic. For more information, please refer to the [Documentation](#documentation) section.
 
 # Features
 
@@ -90,7 +90,7 @@ A more detailed documentation can be found at [`docs/README.md`](docs/README.md)
 
 # Questions/Issues
 
-If you encounter any problems or have any questions, please open an issue on the GitHub repository.
+If you encounter any problems or have any questions, please open an issue on [the GitHub repository](https://github.com/iCampus-Wildau/ros-i2c).
 
 # Contributing
 Explain how others may contribute to this software/project. This might include linking the contributer guidelines and a code of conduct, as well as, pointing new contributers to „good first issues“ (if such concept applies).
