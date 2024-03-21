@@ -78,7 +78,8 @@ Future work:
 - scanning for connected peripherals
 - receiving data from peripherals
 
-The ROS I²C package is designed and tested to work well with ROS 2 (Humble) on a Raspberry Pi 4 (Model B). However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
+> [!NOTE]
+> The ROS I²C package is designed and tested to work well with ROS 2 (Humble) on a Raspberry Pi 4 (Model B). However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
 
 # Contents of this Repository
 
