@@ -1,5 +1,3 @@
-#!/usr/bin/env python
-
 """
 ROS Node to offer I2C functionality to the rest of the system.
 
@@ -13,27 +11,17 @@ https://raspberry-projects.com/pi/programming-in-python/i2c-programming-in-pytho
 
 """
 
-import os
-import sys
 from typing import Dict
 
-import smbus  # System management bus ==> I2C compatible
+import smbus2 as smbus
 import time
 
 # ROS 2 Imports
 import rclpy
+
 from rclpy.node import Node
-from rclpy.subscription import Subscription
-from rcl_interfaces.msg import ParameterDescriptor
 
-from std_msgs.msg import String
-from hardware_interfaces_msgs.msg import I2Cwrite8, I2Cwrite16, I2CwriteArray
-
-from resource_manager.resources import Resources
-
-import threading
-
-sem = threading.Semaphore()
+from ros_i2c_interfaces.msg import Write8, Write16, WriteArray
 
 
 """ 
@@ -101,31 +89,9 @@ class I2CNode(Node):
 
         # Subscribe to I2C Bridge Topics
 
-        self.sub_i2c_8 = self.create_subscription(I2Cwrite8, "system/i2c/write8", self.on_write_8, 10)
-        self.sub_i2c_16 = self.create_subscription(I2Cwrite16, "system/i2c/write16", self.on_write_16, 10)
-        self.sub_i2c_arr = self.create_subscription(I2CwriteArray, "system/i2c/writeArray", self.on_write_array, 10)
-
-        ################################
-        ### CREATE RESOURCE ############
-
-        self.resource_name = self.declare_parameter(
-                "resource_name", "hardware_interfaces",
-                ParameterDescriptor(description='Resource name of this i2c bridge. Used to wait for the node to be started')
-            ).get_parameter_value().string_value
-        
-        self.i2c_resource_name = self.declare_parameter(
-                "i2c_resource_name", f"{self.resource_name}/i2c",
-                ParameterDescriptor(description='The i2c resource name.')
-            ).get_parameter_value().string_value
-        
-        self.resource_manager_topic = self.declare_parameter(
-                "resource_manager_topic", "resources/manager",
-                ParameterDescriptor(description='Resource manager topic name.')
-            ).get_parameter_value().string_value
-        
-
-        self.resources = Resources(self)
-        self.resources.create(self.i2c_resource_name)
+        self.sub_i2c_8 = self.create_subscription(Write8, "system/i2c/write8", self.on_write_8, 10)
+        self.sub_i2c_16 = self.create_subscription(Write16, "system/i2c/write16", self.on_write_16, 10)
+        self.sub_i2c_arr = self.create_subscription(WriteArray, "system/i2c/writeArray", self.on_write_array, 10)
 
         ################################
         ### LOG INFO ###################
@@ -145,13 +111,13 @@ class I2CNode(Node):
         self.resources.shutdown()
         self.bus.close()
 
-    def on_write_16(self, msg: I2Cwrite16):
+    def on_write_16(self, msg: Write16):
         """
         Send 16 bit data over I2C.
 
         Parameters
         ----------
-        msg : I2Cwrite16
+        msg : Write16
             I2C message with address, command and data.
         """
         self.get_logger().debug("I2C write16:    addr: {} cmd: {} data: {}".format(str(msg.address), str(msg.command), str(msg.data)))
@@ -160,13 +126,13 @@ class I2CNode(Node):
         except Exception as e:
             self.get_logger().error(str(e))
 
-    def on_write_8(self, msg: I2Cwrite8):
+    def on_write_8(self, msg: Write8):
         """
         Send 8 bit data over I2C.
 
         Parameters
         ----------
-        msg : I2Cwrite8
+        msg : Write8
             I2C message with address, command and data.
         """
         self.get_logger().debug("I2C write8:     addr: {} cmd: {} data: {}".format(str(msg.address), str(msg.command), str(msg.data)))
@@ -175,13 +141,13 @@ class I2CNode(Node):
         except Exception as e:
             self.get_logger().error(str(e))
 
-    def on_write_array(self, msg: I2CwriteArray):
+    def on_write_array(self, msg: WriteArray):
         """
         Send an array of data over I2C.
 
         Parameters
         ----------
-        msg : I2Cwrite16
+        msg : Write16
             I2C message with address, command and an data array.
         """
         data = []
@@ -247,75 +213,3 @@ class BusSim(object):
 
     def write_word_data(self, addr, cmd, data):
         self.log.debug("Write @ {} CMD: {} Data: {}".format(addr, cmd, data))
-
-
-if __name__ == "__main__":
-    main()
-
-"""
-### Address of the slave device
-addr = 0x08
-
-### Example values
-cmd = 0x55        # Command or register
-byteVal = 0x1A    # byte value
-wordVal = 0xABCD  # 2 byte value
-listVal = [5, 10, 15, 50]  # value list
-
-### Write operations
-bus.write_byte(addr, byteVal)
-bus.write_byte_data(addr, cmd, byteVal)
-bus.write_word_data(addr, cmd, wordVal)
-bus.write_block_data(addr, cmd, listVal)
-
-### Read operations
-readByte = bus.read_byte(addr)
-readByte = bus.read_byte_data(addr, cmd)
-readWord = bus.read_word_data(addr, cmd)
-readList = bus.read_block_data(addr, cmd)
-"""
-
-""" List of smbus commands
-
-Send only the read / write bit 
-long write_quick(int addr)
-
-Read a single byte from a device, without specifying a device register. 
-long read_byte(int addr)
-
-Send a single byte to a device (without command or register)
-long write_byte(int addr, char val)
-
-Read a single byte from a device (cmd is the command or register declaration)
-long read_byte_data(int addr, char cmd)
-
-Send a single byte to a device (cmd is the command or register declaration)
-long write_byte_data(int addr, char cmd, char val)
-
-Read a 16 Bit word from a device (cmd is the command or register declaration)
-long read_word_data(int addr, char cmd)
-
-Send a 16 Bit word from to a device (cmd is the command or register declaration)
-long write_word_data(int addr, char cmd, int val)
-
-Read a block of data from a device (cmd is the command or register declaration)
-long[] read_block_data(int addr, char cmd)
-
-Send a block of data to a device (cmd is the command or register declaration).
-The data block should be maximum 31 Byte.
-The function adds a length byte before the data bytes.
-write_block_data(int addr, char cmd, long vals[])
-
-Process Call transaction
-long process_call(int addr, char cmd, int val)
-
-Block Process Call transaction
-long[] block_process_call(int addr, char cmd, long vals[])
-
-Read a block of raw data from a device (cmd is the command or register declaration)
-long[] read_i2c_block_data(int addr, char cmd)
-
-Send a block of raw data to a device (cmd is the command or register declaration).
-write_i2c_block_data(int addr,char cmd, long vals[])
-
-"""

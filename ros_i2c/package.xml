@@ -1,19 +1,18 @@
 <?xml version="1.0"?>
-<?xml-model href="http://download.ros.org/schema/package_format3.xsd" schematypens="http://www.w3.org/2001/XMLSchema"?>
+<?xml-model href="http://download.ros.org/schema/package_format3.xsd"
+  schematypens="http://www.w3.org/2001/XMLSchema"?>
+
 <package format="3">
   <name>ros_i2c</name>
-  <version>0.1.0</version>
-  <description>ROS2 nodes for low level hardware interfaces.</description>
+  <version>1.0.0</version>
+  
+  <description>A ROS 2 package for low level hardware communication via I²C.</description>
   <maintainer email="vasc9380@th-wildau.de">Valentin Schröter</maintainer>
-  <license>MIT</license>
-
-  <test_depend>ament_copyright</test_depend>
-  <test_depend>ament_flake8</test_depend>
-  <test_depend>ament_pep257</test_depend>
-  <test_depend>python3-pytest</test_depend>
+  <license>Apache 2.0</license>
 
   <exec_depend>ros_i2c_interfaces</exec_depend>
-
+  
+  <test_depend>python3-pytest</test_depend>
 
   <export>
     <build_type>ament_python</build_type>
