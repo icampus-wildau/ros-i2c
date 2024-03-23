@@ -80,6 +80,7 @@ class I2CNode(Node):
         self.error_slaves: Dict[int, ErrorSlave] = dict()
 
         # Open I2C Bus
+        self.bus: smbus.SMBus
         try:
             self.bus = smbus.SMBus(bus)
             self.get_logger().info("Successfully opened SMbus({})".format(bus))
@@ -89,9 +90,9 @@ class I2CNode(Node):
 
         # Subscribe to I2C Bridge Topics
 
-        self.sub_i2c_8 = self.create_subscription(Write8, "system/i2c/write8", self.on_write_8, 10)
-        self.sub_i2c_16 = self.create_subscription(Write16, "system/i2c/write16", self.on_write_16, 10)
-        self.sub_i2c_arr = self.create_subscription(WriteArray, "system/i2c/writeArray", self.on_write_array, 10)
+        self.sub_i2c_8 = self.create_subscription(Write8, "i2c/write8", self.on_write_8, 10)
+        self.sub_i2c_16 = self.create_subscription(Write16, "i2c/write16", self.on_write_16, 10)
+        self.sub_i2c_arr = self.create_subscription(WriteArray, "i2c/writeArray", self.on_write_array, 10)
 
         ################################
         ### LOG INFO ###################

@@ -82,8 +82,6 @@ You can also send 16-bit data using the `write16` topic, or multiple bytes using
 
 # Features & Compatibility
 
-***Vielleicht besser in einem Abschnitt? Mal angenommen, es gäbe features, die nur auf bestimmter hardware/... verfügbar sind, dann könnte man mit z.b. einer tabelle gleich die Kompatibilität festhalten, ohne das darauf noch mal zu wiederholen.***
-
 Features of the I²C-Node:
 - Transmit 8-bit data
 - Transmit 16-bit data
@@ -94,7 +92,7 @@ Future work:
 - receiving data from peripherals
 
 > [!NOTE]
-> The ROS I²C package is designed and tested to work well with ROS 2 (Humble) on a Raspberry Pi 4 (Model B). However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
+> The ROS I²C package is designed and tested to work well with **ROS 2 (Humble)** on a **Raspberry Pi 4 (Model B)**. However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
 
 # Contents of this Repository
 
@@ -109,7 +107,6 @@ A more detailed documentation can be found at [`docs/README.md`](docs/README.md)
 If you encounter any problems or have any questions, please open an issue on [the GitHub repository](https://github.com/iCampus-Wildau/ros-i2c).
 
 # Contributing
-<!-- Explain how others may contribute to this software/project. This might include linking the contributer guidelines and a code of conduct, as well as, pointing new contributers to „good first issues“ (if such concept applies). -->
 
 Contributions to extend the functionality or to solve existing problems are welcome! Requirements for pull requests are:
 - All code is tested
