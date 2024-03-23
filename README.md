@@ -8,17 +8,13 @@ This package provides a ROS 2 node that allows for communication with I²C devic
 
 Using [pakk](https://github.com/iCampus-Wildau/pakk) package manager is recommended for automating the installation and management of ROS 2 packages.
 
-## Installation
-
 <!-- MD+:TODO: Auto generate with markdwon plus if pakk.cfg file is present -->
 
-Install the ROS I²C package using pakk:
+Installation using pakk:
 
 ```bash
 pakk install icampus-wildau/ros-i2c
 ```
-
-## Usage
 
 After the installation completes, start the I²C package:
 
@@ -32,11 +28,15 @@ See the [Examples](#examples) section for more information on how to use the I²
 
 # Getting Started from Scratch 
 
-This guide will help you to install the ROS I²C package and run the I²C node on your system. If you prefer a more automated/managed approach, please refer to the [Getting Started using pakk](#getting-started-using-pakk) section, which uses the [pakk](https://github.com/iCampus-Wildau/pakk) package manager.
+If you prefer to install the package manually, follow the instructions below.
 
-## Installation 
+<!-- This guide will help you to install the ROS I²C package and run the I²C node on your system. If you prefer a more automated/managed approach, please refer to the [Getting Started using pakk](#getting-started-using-pakk) section, which uses the [pakk](https://github.com/iCampus-Wildau/pakk) package manager. -->
+
+<!-- ## Installation  -->
 
 <!-- MD+:TODO: Auto generate by parsing the pakk.cfg file -->
+
+Clone and build the package:
 
 ```bash
 # Clone the repository
@@ -51,12 +51,11 @@ python3 -m pip install -r requirements.txt
 colcon build --packages-select ros_i2c ros_i2c_interfaces
 ```
 
-
-## Usage 
+<!-- ## Usage  -->
 
 <!-- MD+:TODO: Auto generate by parsing the repo -->
 
-After the installation completes, run the I²C node:
+After the installation is completed, run the I²C node:
 
 ```bash
 ros2 run ros_i2c i2c  # Run the I²C node directly, or ...
