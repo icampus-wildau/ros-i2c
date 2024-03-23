@@ -2,29 +2,30 @@
 
 **A ROS 2 package for low level hardware communication via I²C.**
 
-This package provides a ROS 2 node that allows for communication with I²C devices connected to the host system. Data can be simply transmitted to I²C peripherals, such as sensors or actuators, by publishing ROS 2 messages to the I²C node.
+This package provides a ROS 2 node that allows for communication with I²C devices connected to the host system. Data can be simply transmitted to I²C peripherals, such as micro controllers or actuators, by publishing ROS 2 messages to the I²C node.
 
 # Getting Started using [pakk](https://github.com/iCampus-Wildau/pakk)
 
-This guide will help you to install the ROS I²C package and run the I²C node on your system using the [pakk](https://github.com/iCampus-Wildau/pakk) package manager, which automates the installation and management of ROS 2 packages. If you prefer a more manual approach, please refer to the [Getting Started from Scratch](#getting-started-from-scratch) section. However, using pakk is recommended for a more convenient management of ROS 2 packages.
+Using [pakk](https://github.com/iCampus-Wildau/pakk) package manager is recommended for automating the installation and management of ROS 2 packages.
 
 ## Installation
 
-MD+:TODO: Auto generate with markdwon plus if pakk.cfg file is present
+<!-- MD+:TODO: Auto generate with markdwon plus if pakk.cfg file is present -->
 
-To install the ROS I²C package using pakk, simply run the following command:
+Install the ROS I²C package using pakk:
 
 ```bash
-pakk install ros-i2c
+pakk install icampus-wildau/ros-i2c
 ```
 
 ## Usage
 
-After the installation completes, you can start the I²C node by using one of the following commands:
+After the installation completes, start the I²C package:
 
 ```bash
-pakk start ros-i2c  # Start the I²C node until the system is rebooted, or ...
-pakk enable ros-i2c  # ... start the I²C node now and on every system boot.
+pakk start ros-i2c  # Start the I²C node until being stopped or system reboot, or ...
+
+pakk enable ros-i2c  # ... start the I²C node now and on every system boot.  
 ```
 
 See the [Examples](#examples) section for more information on how to use the I²C node.
@@ -35,13 +36,27 @@ This guide will help you to install the ROS I²C package and run the I²C node o
 
 ## Installation 
 
-MD+:TODO: Auto generate by parsing the pakk.cfg file
+<!-- MD+:TODO: Auto generate by parsing the pakk.cfg file -->
+
+```bash
+# Clone the repository
+cd ~/ros2_ws/src
+git clone https://github.com/iCampus-Wildau/ros-i2c.git
+
+# Install the required dependencies
+cd ~/ros-i2c
+python3 -m pip install -r requirements.txt
+
+# Build the package
+colcon build --packages-select ros_i2c ros_i2c_interfaces
+```
+
 
 ## Usage 
 
-MD+:TODO: Auto generate by parsing the repo
+<!-- MD+:TODO: Auto generate by parsing the repo -->
 
-After you installed the I²C package, you can run the I²C node in your terminal by using one of the following commands:
+After the installation completes, run the I²C node:
 
 ```bash
 ros2 run ros_i2c i2c  # Run the I²C node directly, or ...
@@ -94,7 +109,12 @@ A more detailed documentation can be found at [`docs/README.md`](docs/README.md)
 If you encounter any problems or have any questions, please open an issue on [the GitHub repository](https://github.com/iCampus-Wildau/ros-i2c).
 
 # Contributing
-Explain how others may contribute to this software/project. This might include linking the contributer guidelines and a code of conduct, as well as, pointing new contributers to „good first issues“ (if such concept applies).
+<!-- Explain how others may contribute to this software/project. This might include linking the contributer guidelines and a code of conduct, as well as, pointing new contributers to „good first issues“ (if such concept applies). -->
+
+Contributions to extend the functionality or to solve existing problems are welcome! Requirements for pull requests are:
+- All code is tested
+- Naming is consistent with project naming
+- Commits are squashed and contain a clear commit message describing what functionality is added.
 
 # Related Projects
 
