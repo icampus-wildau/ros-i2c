@@ -4,25 +4,26 @@
 
 This package provides a ROS 2 node that allows for communication with I²C devices connected to the host system. Data can be simply transmitted to I²C peripherals, such as micro controllers or actuators, by publishing ROS 2 messages to the I²C node.
 
+<!-- MD+:generate.getting_started.pakk 
+header = '# Getting Started using [pakk](https://github.com/iCampus-Wildau/pakk)'
+installation = True
+usage = True
+-->
 # Getting Started using [pakk](https://github.com/iCampus-Wildau/pakk)
-
 Using [pakk](https://github.com/iCampus-Wildau/pakk) package manager is recommended for automating the installation and management of ROS 2 packages.
 
-<!-- MD+:TODO: Auto generate with markdwon plus if pakk.cfg file is present -->
-
-Installation using pakk:
-
+Installation with pakk:
 ```bash
 pakk install icampus-wildau/ros-i2c
 ```
 
-After the installation completes, start the I²C package:
-
+After the installation completes, start the ros-i2c package:
 ```bash
-pakk start ros-i2c  # Start the I²C node until being stopped or system reboot, or ...
-
-pakk enable ros-i2c  # ... start the I²C node now and on every system boot.  
+pakk start ros-i2c  # Start the package until being stopped or system reboot, or ...
+pakk enable ros-i2c  # ... start it now and on every system boot.  
 ```
+
+<!-- MD+FIN:generate.getting_started.pakk -->
 
 See the [Examples](#examples) section for more information on how to use the I²C node.
 
@@ -30,9 +31,6 @@ See the [Examples](#examples) section for more information on how to use the I²
 
 If you prefer to install the package manually, follow the instructions below.
 
-<!-- This guide will help you to install the ROS I²C package and run the I²C node on your system. If you prefer a more automated/managed approach, please refer to the [Getting Started using pakk](#getting-started-using-pakk) section, which uses the [pakk](https://github.com/iCampus-Wildau/pakk) package manager. -->
-
-<!-- ## Installation  -->
 
 <!-- MD+:TODO: Auto generate by parsing the pakk.cfg file -->
 
