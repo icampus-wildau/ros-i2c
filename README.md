@@ -93,7 +93,17 @@ Future work:
 
 # Contents of this Repository
 
-MD+:TODO: Auto-Generate by parsing the repo
+<!-- MD+:generate.content 
+header = '# Content'
+-->
+# Content
+
+|                    Dir                   |                                 Content                                 |
+|------------------------------------------|-------------------------------------------------------------------------|
+|              [`docs`](docs)              |                          ROS I²C Documentation                          |
+|           [`ros_i2c`](ros_i2c)           |                 Python package containing the ROS-nodes.                |
+|[`ros_i2c_interfaces`](ros_i2c_interfaces)|ROS interface package containing the I²C message and service definitions.|
+<!-- MD+FIN:generate.content -->
 
 # Documentation
 
