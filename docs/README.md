@@ -1,6 +1,6 @@
 # ROS I²C Documentation
 
-#MD+:ros.complete("..")
+<!-- #MD+:ros.complete("..") -->
 
 <!-- MD+:ros.launchs 
 header = '# ROS Launch Scripts'
@@ -9,7 +9,7 @@ header = '# ROS Launch Scripts'
 
 |Name|        Info        |                Script                |
 |----|--------------------|--------------------------------------|
-| i2c|Starts the i2c node.|[i2c](..\ros_i2c\launch\i2c.launch.py)|
+| i2c|Starts the i2c node.|[i2c](../ros_i2c/launch/i2c.launch.py)|
 <!-- MD+FIN:ros.launchs -->
 
 <!-- MD+:ros.nodes 
@@ -21,9 +21,9 @@ include_parameters = True
 -->
 # ROS Nodes
 
-|Package|      Name      |                             Info                             |                   Script                   |
-|-------|----------------|--------------------------------------------------------------|--------------------------------------------|
-|ros_i2c|[i2c](#i2c-node)|ROS Node to offer I2C functionality to the rest of the system.|[ros_i2c.bridge](\ros_i2c\ros_i2c\bridge.py)|
+|Package|      Name      |                             Info                             |                    Script                    |
+|-------|----------------|--------------------------------------------------------------|----------------------------------------------|
+|ros_i2c|[i2c](#i2c-node)|ROS Node to offer I2C functionality to the rest of the system.|[ros_i2c.bridge](../ros_i2c/ros_i2c/bridge.py)|
 
 ## `i2c` Node
 
@@ -89,7 +89,7 @@ header = '# ROS Interface Definitions'
 
 ## Message definitions of ros_i2c_interfaces
 
-### [`Write16`](\ros_i2c_interfaces\msg\Write16.msg)
+### [`Write16`](../ros_i2c_interfaces/msg/Write16.msg)
 
 ```python
 # Address of the slave device
@@ -101,7 +101,7 @@ uint16 data
 ```
 
 
-### [`Write8`](\ros_i2c_interfaces\msg\Write8.msg)
+### [`Write8`](../ros_i2c_interfaces/msg/Write8.msg)
 
 ```python
 # Address of the slave device
@@ -113,7 +113,7 @@ uint8 data
 ```
 
 
-### [`WriteArray`](\ros_i2c_interfaces\msg\WriteArray.msg)
+### [`WriteArray`](../ros_i2c_interfaces/msg/WriteArray.msg)
 
 ```python
 # Address of the slave device
