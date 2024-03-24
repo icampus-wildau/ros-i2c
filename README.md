@@ -91,16 +91,14 @@ Future work:
 > [!NOTE]
 > The ROS I²C package is designed and tested to work well with **ROS 2 (Humble)** on a **Raspberry Pi 4 (Model B)**. However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
 
-# Contents of this Repository
-
 <!-- MD+:generate.content 
-header = '# Content'
+header = '# Contents of this Repository'
 -->
-# Content
+# Contents of this Repository
 
 |                    Dir                   |                                 Content                                 |
 |------------------------------------------|-------------------------------------------------------------------------|
-|              [`docs`](docs)              |                          ROS I²C Documentation                          |
+|              [`docs`](docs)              |                           <!-- MD+:ros.launchs                          |
 |           [`ros_i2c`](ros_i2c)           |                 Python package containing the ROS-nodes.                |
 |[`ros_i2c_interfaces`](ros_i2c_interfaces)|ROS interface package containing the I²C message and service definitions.|
 <!-- MD+FIN:generate.content -->
