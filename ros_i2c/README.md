@@ -1,1 +1,1 @@
-Python package containing the ROS-nodes.  
+A Python package containing the ROS I²C nodes.
