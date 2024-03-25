@@ -19,7 +19,7 @@ pakk install icampus-wildau/ros-i2c
 
 After the installation completes, start the ros-i2c package:
 ```bash
-pakk start ros-i2c  # Start the package until being stopped or system reboot, or ...
+pakk start ros-i2c  # Run as a service until a reboot / manual stop, or ...
 pakk enable ros-i2c  # ... start it now and on every system boot.  
 ```
 
