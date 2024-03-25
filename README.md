@@ -38,11 +38,11 @@ Clone and build the package:
 
 ```bash
 # Clone the repository
-cd ~/ros2_ws/src
+cd ~/ros2_ws/src   # Go to your ROS workspace sources.
 git clone https://github.com/iCampus-Wildau/ros-i2c.git
 
 # Install the required dependencies
-cd ~/ros-i2c
+cd ros-i2c  # Go to the cloned repository.
 python3 -m pip install -r requirements.txt
 
 # Build the package
