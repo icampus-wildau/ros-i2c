@@ -64,8 +64,6 @@ See the [Examples](#examples) section for more information on how to use the I²
 
 # Examples
 
-***Wie wäre es mit einem Beispieleabschnitt? Sonst müsste man das bei beiden Getting Started Abschnitten machen, also doppelt. und hier könnte man auch direkt hinspringen, wenn mans schon installiert hat. Man könnte auch überlegen, ob man die Installation/Usage abschnitte dann noch brauch oder das lieber im fluss macht.***
-
 > [!CAUTION]
 > Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
 
@@ -96,11 +94,11 @@ header = '# Contents of this Repository'
 -->
 # Contents of this Repository
 
-|                    Dir                   |                                 Content                                 |
-|------------------------------------------|-------------------------------------------------------------------------|
-|              [`docs`](docs)              |                           <!-- MD+:ros.launchs                          |
-|           [`ros_i2c`](ros_i2c)           |                 Python package containing the ROS-nodes.                |
-|[`ros_i2c_interfaces`](ros_i2c_interfaces)|ROS interface package containing the I²C message and service definitions.|
+| Dir                                        | Content                                                                     |
+| ------------------------------------------ | --------------------------------------------------------------------------- |
+| [`docs`](docs)                             | The documentation for the ROS I²C package.                                  |
+| [`ros_i2c`](ros_i2c)                       | A Python package containing the ROS I²C nodes.                              |
+| [`ros_i2c_interfaces`](ros_i2c_interfaces) | A ROS interface package containing the I²C message and service definitions. |
 <!-- MD+FIN:generate.content -->
 
 # Documentation
