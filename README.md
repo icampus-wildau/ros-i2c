@@ -73,7 +73,7 @@ To send data to an I²C peripheral, you can publish a message to the I²C node. 
 ros2 topic pub /i2c/write8 "{address: 0x42, command: 0x01, data: 0x42}"
 ```
 
-You can also send 16-bit data using the `write16` topic, or multiple bytes using the `write_array` topic. For more information, please refer to the [Documentation](#documentation) section.
+You can also send 16-bit data using the `write16` topic, or multiple bytes using the `write_array` topic. For more information, please refer to the [Documentation](docs/README.md).
 
 # Features & Compatibility
 
