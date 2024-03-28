@@ -1,6 +1,8 @@
-# ROS I²C Documentation
+<!-- MD+:META
+title = "The documentation for the ROS I²C package."
+-->
 
-<!-- #MD+:ros.complete("..") -->
+# ROS I²C Documentation
 
 <!-- MD+:ros.launchs 
 header = '# ROS Launch Scripts'

@@ -94,11 +94,11 @@ header = '# Contents of this Repository'
 -->
 # Contents of this Repository
 
-| Dir                                        | Content                                                                     |
-| ------------------------------------------ | --------------------------------------------------------------------------- |
-| [`docs`](docs)                             | The documentation for the ROS I²C package.                                  |
-| [`ros_i2c`](ros_i2c)                       | A Python package containing the ROS I²C nodes.                              |
-| [`ros_i2c_interfaces`](ros_i2c_interfaces) | A ROS interface package containing the I²C message and service definitions. |
+|                    Dir                   |                                 Content                                 |
+|------------------------------------------|-------------------------------------------------------------------------|
+|              [`docs`](docs)              |                The documentation for the ROS I²C package.               |
+|           [`ros_i2c`](ros_i2c)           |               Python package containing the ROS I²C nodes.              |
+|[`ros_i2c_interfaces`](ros_i2c_interfaces)|ROS interface package containing the I²C message and service definitions.|
 <!-- MD+FIN:generate.content -->
 
 # Documentation
