@@ -6,8 +6,9 @@ title = "The documentation for the ROS I²C package."
 
 <!-- MD+:ros.launchs 
 header = '# ROS Launch Scripts'
+level = 2
 -->
-# ROS Launch Scripts
+## ROS Launch Scripts
 
 |Name|        Info        |                Script                |
 |----|--------------------|--------------------------------------|
@@ -16,18 +17,19 @@ header = '# ROS Launch Scripts'
 
 <!-- MD+:ros.nodes 
 header = '# ROS Nodes'
+level = 2
 only_commented_publishers = True
 only_commented_subscriptions = True
 only_commented_services = True
 include_parameters = True
 -->
-# ROS Nodes
+## ROS Nodes
 
 |Package|      Name      |                             Info                             |                    Script                    |
 |-------|----------------|--------------------------------------------------------------|----------------------------------------------|
 |ros_i2c|[i2c](#i2c-node)|ROS Node to offer I2C functionality to the rest of the system.|[ros_i2c.bridge](../ros_i2c/ros_i2c/bridge.py)|
 
-## `i2c` Node
+### `i2c` Node
 
 ROS Node to offer I2C functionality to the rest of the system.
 
@@ -47,7 +49,7 @@ https://raspberry-projects.com/pi/programming-in-python/i2c-programming-in-pytho
 |[`i2c/write8`](#i2cwrite8)        |[`Write8`](#write8)        |Subscription|Send 8 bit data over I2C.      |
 |[`i2c/writeArray`](#i2cwritearray)|[`WriteArray`](#writearray)|Subscription|Send an array of data over I2C.|
 
-### `i2c/write8`
+#### `i2c/write8`
 ```
 Send 8 bit data over I2C.
 
@@ -57,7 +59,7 @@ msg : Write8
     I2C message with address, command and data.
 ```
 
-### `i2c/write16`
+#### `i2c/write16`
 ```
 Send 16 bit data over I2C.
 
@@ -67,7 +69,7 @@ msg : Write16
     I2C message with address, command and data.
 ```
 
-### `i2c/writeArray`
+#### `i2c/writeArray`
 ```
 Send an array of data over I2C.
 
@@ -80,8 +82,9 @@ msg : Write16
 
 <!-- MD+:ros.interfaces 
 header = '# ROS Interface Definitions'
+level = 2
 -->
-# ROS Interface Definitions
+## ROS Interface Definitions
 
 |            Name           |  Type |      Package     |
 |---------------------------|-------|------------------|
@@ -89,9 +92,9 @@ header = '# ROS Interface Definitions'
 |    [`Write8`](#write8)    |Message|ros_i2c_interfaces|
 |[`WriteArray`](#writearray)|Message|ros_i2c_interfaces|
 
-## Message definitions of ros_i2c_interfaces
+### Message definitions of ros_i2c_interfaces
 
-### [`Write16`](../ros_i2c_interfaces/msg/Write16.msg)
+#### [`Write16`](../ros_i2c_interfaces/msg/Write16.msg)
 
 ```python
 # Address of the slave device
@@ -103,7 +106,7 @@ uint16 data
 ```
 
 
-### [`Write8`](../ros_i2c_interfaces/msg/Write8.msg)
+#### [`Write8`](../ros_i2c_interfaces/msg/Write8.msg)
 
 ```python
 # Address of the slave device
@@ -115,7 +118,7 @@ uint8 data
 ```
 
 
-### [`WriteArray`](../ros_i2c_interfaces/msg/WriteArray.msg)
+#### [`WriteArray`](../ros_i2c_interfaces/msg/WriteArray.msg)
 
 ```python
 # Address of the slave device

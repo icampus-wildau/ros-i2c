@@ -6,6 +6,7 @@ This package provides a ROS 2 node that allows for communication with I²C devic
 
 <!-- MD+:generate.getting_started.pakk 
 header = '# Getting Started using [pakk](https://github.com/iCampus-Wildau/pakk)'
+level = 1
 installation = True
 usage = True
 -->
@@ -91,6 +92,7 @@ Future work:
 
 <!-- MD+:generate.content 
 header = '# Contents of this Repository'
+level = 1
 -->
 # Contents of this Repository
 
