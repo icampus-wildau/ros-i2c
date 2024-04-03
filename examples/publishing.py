@@ -14,7 +14,7 @@ from ros_i2c_interfaces.msg import Write8, Write16, WriteArray
 # Create publishers for the i2c messages
 pub_i2c_8 = node.create_publisher(Write8, "i2c/write8", 10)
 pub_i2c_16 = node.create_publisher(Write16, "i2c/write16", 10) 
-pub_i2c_array = node.create_publisher(WriteArray, "i2c/writeArray", 10)
+pub_i2c_array = node.create_publisher(WriteArray, "i2c/write_array", 10)
 
 # Methods to publish i2c messages
 def publish_8_bit(self, cmd: int, data: int):
