@@ -12,9 +12,11 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-# Address of the slave device
+# The I2C address of the peripheral device to write to.
 uint8 address
-# Command sent to the slave device
+
+# The command to sent to the peripheral device.
 uint8 command
-# Data sent to the slave device (single byte)
+
+# The data/payload (single byte) to sent to the peripheral device.
 uint8 data

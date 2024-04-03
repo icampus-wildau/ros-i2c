@@ -20,7 +20,7 @@ from ros_i2c_interfaces.msg import Write8, Write16, WriteArray
 # Create publishers for the i2c messages
 pub_i2c_8 = node.create_publisher(Write8, "i2c/write8", 10)
 pub_i2c_16 = node.create_publisher(Write16, "i2c/write16", 10) 
-pub_i2c_array = node.create_publisher(WriteArray, "i2c/writeArray", 10)
+pub_i2c_array = node.create_publisher(WriteArray, "i2c/write_array", 10)
 
 # Methods to publish i2c messages
 def publish_8_bit(self, cmd: int, data: int):
@@ -74,29 +74,24 @@ include_parameters = True
 -->
 ## ROS Nodes
 
-|Package|      Name      |                             Info                             |                    Script                    |
-|-------|----------------|--------------------------------------------------------------|----------------------------------------------|
-|ros_i2c|[i2c](#i2c-node)|ROS Node to offer I2C functionality to the rest of the system.|[ros_i2c.bridge](../ros_i2c/ros_i2c/bridge.py)|
+|Package|      Name      |                            Info                            |                    Script                    |
+|-------|----------------|------------------------------------------------------------|----------------------------------------------|
+|ros_i2c|[i2c](#i2c-node)|This ROS 2 node offers I2C functionality to other ROS nodes.|[ros_i2c.bridge](../ros_i2c/ros_i2c/bridge.py)|
 
 ### `i2c` Node
 
-ROS Node to offer I2C functionality to the rest of the system.
+This ROS 2 node offers I2C functionality to other ROS nodes.
 
-This node subscribes ROS-Messages to send data over I2C.
-This node is for the Raspberry Pi 4B.
-
-I2C: 
-http://www.netzmafia.de/skripten/hardware/RasPi/RasPi_I2C.html 
-and
-https://raspberry-projects.com/pi/programming-in-python/i2c-programming-in-python/using-the-i2c-interface-2 
+The node performs respective write operations on the I2C bus upon receiving
+`Write*` messages on the corresponding `i2c/write*` ROS 2 topics.
 
 **Publisher, Subscriber and Services of this node**
 
-|Topic                             |Type                       |Kind        |Info                           |
-|----------------------------------|---------------------------|------------|-------------------------------|
-|[`i2c/write16`](#i2cwrite16)      |[`Write16`](#write16)      |Subscription|Send 16 bit data over I2C.     |
-|[`i2c/write8`](#i2cwrite8)        |[`Write8`](#write8)        |Subscription|Send 8 bit data over I2C.      |
-|[`i2c/writeArray`](#i2cwritearray)|[`WriteArray`](#writearray)|Subscription|Send an array of data over I2C.|
+|Topic                               |Type                       |Kind        |Info                           |
+|------------------------------------|---------------------------|------------|-------------------------------|
+|[`i2c/write16`](#i2cwrite16)        |[`Write16`](#write16)      |Subscription|Send 16 bit data over I2C.     |
+|[`i2c/write8`](#i2cwrite8)          |[`Write8`](#write8)        |Subscription|Send 8 bit data over I2C.      |
+|[`i2c/write_array`](#i2cwrite_array)|[`WriteArray`](#writearray)|Subscription|Send an array of data over I2C.|
 
 #### `i2c/write8`
 ```
@@ -118,7 +113,7 @@ msg : Write16
     I2C message with address, command and data.
 ```
 
-#### `i2c/writeArray`
+#### `i2c/write_array`
 ```
 Send an array of data over I2C.
 
@@ -146,11 +141,13 @@ level = 2
 #### [`Write16`](../ros_i2c_interfaces/msg/Write16.msg)
 
 ```python
-# Address of the slave device
+# The I2C address of the peripheral device to write to.
 uint8 address
-# Command sent to the slave device
+
+# The command to sent to the peripheral device.
 uint8 command
-# Data sent to the slave device (two bytes)
+
+# The data/payload (2 bytes) to sent to the peripheral device.
 uint16 data
 ```
 
@@ -158,11 +155,13 @@ uint16 data
 #### [`Write8`](../ros_i2c_interfaces/msg/Write8.msg)
 
 ```python
-# Address of the slave device
+# The I2C address of the peripheral device to write to.
 uint8 address
-# Command sent to the slave device
+
+# The command to sent to the peripheral device.
 uint8 command
-# Data sent to the slave device (single byte)
+
+# The data/payload (single byte) to sent to the peripheral device.
 uint8 data
 ```
 
@@ -170,11 +169,13 @@ uint8 data
 #### [`WriteArray`](../ros_i2c_interfaces/msg/WriteArray.msg)
 
 ```python
-# Address of the slave device
+# The I2C address of the peripheral device to write to.
 uint8 address
-# Command sent to the slave device
+
+# The command to sent to the peripheral device.
 uint8 command
-# Data sent to the slave device (byte array)
+
+# The data/payload (byte array) to sent to the peripheral device.
 uint8[] data
 ```
 

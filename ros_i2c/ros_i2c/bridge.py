@@ -13,58 +13,23 @@
 # limitations under the License.
 
 """
-ROS Node to offer I2C functionality to the rest of the system.
+This ROS 2 node offers I2C functionality to other ROS nodes.
 
-This node subscribes ROS-Messages to send data over I2C.
-This node is for the Raspberry Pi 4B.
-
-I2C: 
-http://www.netzmafia.de/skripten/hardware/RasPi/RasPi_I2C.html 
-and
-https://raspberry-projects.com/pi/programming-in-python/i2c-programming-in-python/using-the-i2c-interface-2 
-
+The node performs respective write operations on the I2C bus upon receiving
+`Write*` messages on the corresponding `i2c/write*` topics.
 """
+
+import time
 
 from typing import Dict
 
 import smbus2 as smbus
-import time
 
-# ROS 2 Imports
 import rclpy
 
 from rclpy.node import Node
 
 from ros_i2c_interfaces.msg import Write8, Write16, WriteArray
-
-
-""" 
-Create smbus instance and open the instance.
-
-For Raspberry Pi 4:
-The Raspberry Pi has two I2C busses, but only bus 1 should be used
-
-I2C Bus 1:
-SDA --> Pin 3
-SCL --> Pin 5
-
-
-For Jetson Nano:
-The Jetson Nano has two I2C busses.
-
-I2C Bus 0:
-SDA --> Pin 27
-SCL --> Pin 28
-
-I2C Bus 1:
-SDA --> Pin 3
-SCL --> Pin 5
-
-
-If there are any I2C devices attached, you can scan that bus from the command line
-$ i2cdetect -y -r 0 
-$ i2cdetect -y -r 1
-"""
 
 
 def toUInt8(x):
@@ -106,7 +71,7 @@ class I2CNode(Node):
 
         self.sub_i2c_8 = self.create_subscription(Write8, "i2c/write8", self.on_write_8, 10)
         self.sub_i2c_16 = self.create_subscription(Write16, "i2c/write16", self.on_write_16, 10)
-        self.sub_i2c_arr = self.create_subscription(WriteArray, "i2c/writeArray", self.on_write_array, 10)
+        self.sub_i2c_arr = self.create_subscription(WriteArray, "i2c/write_array", self.on_write_array, 10)
 
         ################################
         ### LOG INFO ###################
@@ -162,7 +127,7 @@ class I2CNode(Node):
 
         Parameters
         ----------
-        msg : Write16
+        msg : WriteArray
             I2C message with address, command and an data array.
         """
         data = []
