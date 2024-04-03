@@ -83,7 +83,7 @@ include_parameters = True
 This ROS 2 node offers I2C functionality to other ROS nodes.
 
 The node performs respective write operations on the I2C bus upon receiving
-`Write*` messages on the corresponding `i2c/write*` ROS 2 topics.
+`Write*` messages on the corresponding `i2c/write*` topics.
 
 **Publisher, Subscriber and Services of this node**
 
@@ -119,7 +119,7 @@ Send an array of data over I2C.
 
 Parameters
 ----------
-msg : Write16
+msg : WriteArray
     I2C message with address, command and an data array.
 ```
 <!-- MD+FIN:ros.nodes -->
