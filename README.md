@@ -93,6 +93,8 @@ Future work:
 <!-- MD+:generate.content 
 header = '# Contents of this Repository'
 level = 1
+dirs = True
+md_files = False
 -->
 # Contents of this Repository
 
