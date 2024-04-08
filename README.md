@@ -112,7 +112,7 @@ A more detailed documentation can be found at [`docs/README.md`](docs/README.md)
 
 # Questions/Issues
 
-If you encounter any problems or have any questions, please open an issue on [the GitHub repository](https://github.com/iCampus-Wildau/ros-i2c).
+If you encounter any problems, please open an issue on [the GitHub repository](https://github.com/icampus-wildau/ros-i2c). If you have any questions, feel free to ask them in the [GitHub Discussions](https://github.com/icampus-wildau/ros-i2c/discussions) section.
 
 # Contributing
 
