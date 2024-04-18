@@ -4,6 +4,20 @@
 
 This package provides a ROS 2 node that allows for communication with I²C devices connected to the host system. Data can be simply transmitted to I²C peripherals, such as micro controllers or actuators, by publishing ROS 2 messages to the I²C node.
 
+# Features & Compatibility
+
+Features of the I²C-Node:
+- Transmit 8-bit data
+- Transmit 16-bit data
+- Transmit byte arrays (up to 30 bytes)
+
+Future work:
+- scanning for connected peripherals
+- receiving data from peripherals
+
+> [!NOTE]
+> The ROS I²C package is designed and tested to work well with **ROS 2 (Humble)** on a **Raspberry Pi 4 (Model B)**. However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
+
 <!-- MD+:generate.getting_started.pakk 
 header = '# Getting Started using [pakk](https://github.com/iCampus-Wildau/pakk)'
 level = 1
@@ -75,20 +89,6 @@ ros2 topic pub /i2c/write8 "{address: 0x42, command: 0x01, data: 0x42}"
 ```
 
 You can also send 16-bit data using the `write16` topic, or multiple bytes using the `write_array` topic. For more information, please refer to the [Documentation](docs/README.md).
-
-# Features & Compatibility
-
-Features of the I²C-Node:
-- Transmit 8-bit data
-- Transmit 16-bit data
-- Transmit byte arrays (up to 30 bytes)
-
-Future work:
-- scanning for connected peripherals
-- receiving data from peripherals
-
-> [!NOTE]
-> The ROS I²C package is designed and tested to work well with **ROS 2 (Humble)** on a **Raspberry Pi 4 (Model B)**. However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
 
 <!-- MD+:generate.content 
 header = '# Contents of this Repository'
