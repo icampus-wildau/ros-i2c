@@ -77,7 +77,7 @@ ros2 launch ros_i2c i2c.launch.py  # ... by using a launch file.
 
 See the [Examples](#examples) section for more information on how to use the I²C node.
 
-# Examples
+# Usage Examples
 
 > [!CAUTION]
 > Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
