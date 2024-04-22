@@ -40,7 +40,7 @@ pakk enable ros-i2c  # ... start it now and on every system boot.
 
 <!-- MD+FIN:generate.getting_started.pakk -->
 
-See the [Examples](#examples) section for more information on how to use the I²C node.
+See the [Examples](#usage-examples) section for more information on how to use the I²C node.
 
 # Getting Started from Scratch 
 
@@ -75,7 +75,7 @@ ros2 run ros_i2c i2c  # Run the I²C node directly, or ...
 ros2 launch ros_i2c i2c.launch.py  # ... by using a launch file.
 ```
 
-See the [Examples](#examples) section for more information on how to use the I²C node.
+See the [Examples](#usage-examples) section for more information on how to use the I²C node.
 
 # Usage Examples
 
