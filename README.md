@@ -4,6 +4,9 @@
 
 This package provides a ROS 2 node that allows for communication with I²C devices connected to the host system. Data can be simply transmitted to I²C devices, such as micro controllers or actuators, by publishing ROS 2 messages to the I²C node.
 
+> [!CAUTION]
+> Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
+
 # Features & Compatibility
 
 Features of the I²C-Node:
