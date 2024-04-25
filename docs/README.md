@@ -10,7 +10,6 @@ level = 1
 path = '../examples/publishing.py'
 -->
 # Basic Publishing Example
-See [examples/publishing.py](./../examples/publishing.py).
 
 This script demonstrates how to publish i2c messages to the ros-i2c package.
 
@@ -48,6 +47,8 @@ def publish_array(self, cmd: int, data: list[int]):
     
     pub_i2c_array.publish(o)
 ```
+
+Source of the above code: [examples/publishing.py](./../examples/publishing.py).
 <!-- MD+FIN:include.example -->
 
 # ROS I²C Specification
