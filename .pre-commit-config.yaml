@@ -22,8 +22,8 @@ repos:
       - id: isort
         args:
           - "--force-single-line-imports"
-          - "--add-import"
-          - "from __future__ import annotations"
+          # - "--add-import"
+          # - "from __future__ import annotations"
           - "--profile"
           - "black"
 
@@ -33,8 +33,3 @@ repos:
     hooks:
       - id: black
         args: ["--line-length", "120"]
-
-
-
-
-

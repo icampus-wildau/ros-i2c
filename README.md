@@ -2,7 +2,7 @@
 
 **A ROS 2 package for low level hardware communication via I²C.**
 
-This package provides a ROS 2 node that allows for communication with I²C devices connected to the host system. Data can be simply transmitted to I²C peripherals, such as micro controllers or actuators, by publishing ROS 2 messages to the I²C node.
+This package provides a ROS 2 node that allows for communication with I²C devices connected to the host system. Data can be simply transmitted to I²C devices, such as micro controllers or actuators, by publishing ROS 2 messages to the I²C node.
 
 # Features & Compatibility
 
@@ -12,13 +12,13 @@ Features of the I²C-Node:
 - Transmit byte arrays (up to 30 bytes)
 
 Future work:
-- scanning for connected peripherals
-- receiving data from peripherals
+- scanning for connected devices
+- receiving data from devices
 
 > [!NOTE]
 > The ROS I²C package is designed and tested to work well with **ROS 2 (Humble)** on a **Raspberry Pi 4 (Model B)**. However, it should be compatible with any platform supported by both ROS 2 and the [smbus2](https://github.com/kplindegaard/smbus2) Python library.
 
-<!-- MD+:generate.getting_started.pakk 
+<!-- MD+:generate.getting_started.pakk
 header = '# Getting Started using [pakk](https://github.com/iCampus-Wildau/pakk)'
 level = 1
 installation = True
@@ -35,14 +35,14 @@ pakk install icampus-wildau/ros-i2c
 After the installation completes, start the ros-i2c package:
 ```bash
 pakk start ros-i2c  # Run as a service until a reboot / manual stop, or ...
-pakk enable ros-i2c  # ... start it now and on every system boot.  
+pakk enable ros-i2c  # ... start it now and on every system boot.
 ```
 
 <!-- MD+FIN:generate.getting_started.pakk -->
 
 See the [Examples](#usage-examples) section for more information on how to use the I²C node.
 
-# Getting Started from Scratch 
+# Getting Started from Scratch
 
 If you prefer to install the package manually, follow the instructions below.
 
@@ -80,9 +80,9 @@ See the [Examples](#usage-examples) section for more information on how to use t
 # Usage Examples
 
 > [!CAUTION]
-> Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
+> Be careful when using the I²C node, as it allows for direct communication with hardware devices. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
 
-To send data to an I²C peripheral, you can publish a message to the I²C node. For example, to transmit the byte `0x42` using the command `0x01` to the I²C address `0x42`, you could use the following command:
+To send data to an I²C device, you can publish a message to the I²C node. For example, to transmit the byte `0x42` using the command `0x01` to the I²C address `0x42`, you could use the following command:
 
 ```bash
 ros2 topic pub /i2c/write8 "{address: 0x42, command: 0x01, data: 0x42}"
@@ -90,7 +90,7 @@ ros2 topic pub /i2c/write8 "{address: 0x42, command: 0x01, data: 0x42}"
 
 You can also send 16-bit data using the `write16` topic, or multiple bytes using the `write_array` topic. For more information, please refer to the [Documentation](docs/README.md).
 
-<!-- MD+:generate.content 
+<!-- MD+:generate.content
 header = '# Contents of this Repository'
 level = 1
 dirs = True
@@ -100,8 +100,11 @@ md_files = False
 
 |Directory                                 |Content                                                                  |
 |------------------------------------------|-------------------------------------------------------------------------|
+|[`build`](build)                          |build                                                                    |
 |[`docs`](docs)                            |The documentation for the ROS I²C package.                               |
 |[`examples`](examples)                    |Basic usage examples for the package.                                    |
+|[`install`](install)                      |install                                                                  |
+|[`log`](log)                              |log                                                                      |
 |[`ros_i2c`](ros_i2c)                      |Python package containing the ROS I²C nodes.                             |
 |[`ros_i2c_interfaces`](ros_i2c_interfaces)|ROS interface package containing the I²C message and service definitions.|
 <!-- MD+FIN:generate.content -->

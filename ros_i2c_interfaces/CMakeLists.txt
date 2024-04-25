@@ -28,6 +28,7 @@ find_package(rosidl_default_generators REQUIRED)
 
 # Generate ROS interfaces.
 rosidl_generate_interfaces(${PROJECT_NAME}
-  "msg/Write8.msg" "msg/Write16.msg" "msg/WriteArray.msg")
+  "msg/WriteArray.msg" "msg/WriteByte.msg" "msg/WriteWord.msg"
+  "srv/TryWriteArray.srv" "srv/TryWriteByte.srv" "srv/TryWriteWord.srv")
 
 ament_package()

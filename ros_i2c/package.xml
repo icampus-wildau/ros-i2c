@@ -5,13 +5,13 @@
 <package format="3">
   <name>ros_i2c</name>
   <version>1.0.0</version>
-  
+
   <description>A ROS 2 package for low level hardware communication via I²C.</description>
   <maintainer email="vasc9380@th-wildau.de">Valentin Schröter</maintainer>
   <license>Apache 2.0</license>
 
   <exec_depend>ros_i2c_interfaces</exec_depend>
-  
+
   <test_depend>python3-pytest</test_depend>
 
   <export>
