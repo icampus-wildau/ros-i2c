@@ -138,7 +138,7 @@ level = 2
 
 ### Message definitions of ros_i2c_interfaces
 
-#### [`Write16`](../ros_i2c_interfaces/msg/Write16.msg)
+#### `Write16`
 
 ```python
 # The I2C address of the peripheral device to write to.
@@ -151,8 +151,9 @@ uint8 command
 uint16 data
 ```
 
+Source: [ros_i2c_interfaces/msg/Write16.msg](../ros_i2c_interfaces/msg/Write16.msg)
 
-#### [`Write8`](../ros_i2c_interfaces/msg/Write8.msg)
+#### `Write8`
 
 ```python
 # The I2C address of the peripheral device to write to.
@@ -165,8 +166,9 @@ uint8 command
 uint8 data
 ```
 
+Source: [ros_i2c_interfaces/msg/Write8.msg](../ros_i2c_interfaces/msg/Write8.msg)
 
-#### [`WriteArray`](../ros_i2c_interfaces/msg/WriteArray.msg)
+#### `WriteArray`
 
 ```python
 # The I2C address of the peripheral device to write to.
@@ -179,4 +181,5 @@ uint8 command
 uint8[] data
 ```
 
+Source: [ros_i2c_interfaces/msg/WriteArray.msg](../ros_i2c_interfaces/msg/WriteArray.msg)
 <!-- MD+FIN:ros.interfaces -->
