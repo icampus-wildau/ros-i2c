@@ -1,7 +1,7 @@
 repos:
   # Markdown plus
   - repo: https://github.com/icampus-wildau/markdown-plus
-    rev: 0.1.3
+    rev: 0.1.4
     hooks:
       - id: mdplus-parse
 

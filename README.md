@@ -103,11 +103,8 @@ md_files = False
 
 |Directory                                 |Content                                                                  |
 |------------------------------------------|-------------------------------------------------------------------------|
-|[`build`](build)                          |build                                                                    |
 |[`docs`](docs)                            |The documentation for the ROS I²C package.                               |
 |[`examples`](examples)                    |Basic usage examples for the package.                                    |
-|[`install`](install)                      |install                                                                  |
-|[`log`](log)                              |log                                                                      |
 |[`ros_i2c`](ros_i2c)                      |Python package containing the ROS I²C nodes.                             |
 |[`ros_i2c_interfaces`](ros_i2c_interfaces)|ROS interface package containing the I²C message and service definitions.|
 <!-- MD+FIN:generate.content -->
