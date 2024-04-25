@@ -9,7 +9,8 @@ header = 'Basic Publishing Example'
 level = 1
 path = '../examples/publishing.py'
 -->
-# [Basic Publishing Example](../examples/publishing.py)
+# Basic Publishing Example
+See [examples/publishing.py](./../examples/publishing.py).
 
 This script demonstrates how to publish i2c messages to the ros-i2c package.
 
@@ -47,8 +48,6 @@ def publish_array(self, cmd: int, data: list[int]):
     
     pub_i2c_array.publish(o)
 ```
-
-
 <!-- MD+FIN:include.example -->
 
 # ROS I²C Specification
@@ -59,9 +58,9 @@ level = 2
 -->
 ## ROS Launch Scripts
 
-|Name|        Info        |                Script                |
-|----|--------------------|--------------------------------------|
-| i2c|Starts the i2c node.|[i2c](../ros_i2c/launch/i2c.launch.py)|
+|Info                |Script                                                         |
+|--------------------|---------------------------------------------------------------|
+|Starts the i2c node.|[ros_i2c/launch/i2c.launch.py](../ros_i2c/launch/i2c.launch.py)|
 <!-- MD+FIN:ros.launchs -->
 
 <!-- MD+:ros.nodes 
@@ -74,7 +73,7 @@ include_parameters = True
 -->
 ## ROS Nodes
 
-|Package|      Name      |                            Info                            |                    Script                    |
+|Package|Name            |Info                                                        |Script                                        |
 |-------|----------------|------------------------------------------------------------|----------------------------------------------|
 |ros_i2c|[i2c](#i2c-node)|This ROS 2 node offers I2C functionality to other ROS nodes.|[ros_i2c.bridge](../ros_i2c/ros_i2c/bridge.py)|
 
@@ -130,10 +129,10 @@ level = 2
 -->
 ## ROS Interface Definitions
 
-|            Name           |  Type |      Package     |
+|Name                       |Type   |Package           |
 |---------------------------|-------|------------------|
-|   [`Write16`](#write16)   |Message|ros_i2c_interfaces|
-|    [`Write8`](#write8)    |Message|ros_i2c_interfaces|
+|[`Write16`](#write16)      |Message|ros_i2c_interfaces|
+|[`Write8`](#write8)        |Message|ros_i2c_interfaces|
 |[`WriteArray`](#writearray)|Message|ros_i2c_interfaces|
 
 ### Message definitions of ros_i2c_interfaces
