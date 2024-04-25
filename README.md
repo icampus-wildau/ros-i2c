@@ -4,6 +4,9 @@
 
 This package provides a ROS 2 node that allows for communication with I²C devices connected to the host system. Data can be simply transmitted to I²C peripherals, such as micro controllers or actuators, by publishing ROS 2 messages to the I²C node.
 
+> [!CAUTION]
+> Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
+
 # Features & Compatibility
 
 Features of the I²C-Node:
@@ -78,9 +81,6 @@ ros2 launch ros_i2c i2c.launch.py  # ... by using a launch file.
 See the [Examples](#usage-examples) section for more information on how to use the I²C node.
 
 # Usage Examples
-
-> [!CAUTION]
-> Be careful when using the I²C node, as it allows for direct communication with hardware peripherals. Sending the wrong data to the wrong address can damage your hardware or lead to otherwise unexpected behavior, for which neither the authors nor the maintainers of this package can be held responsible for.
 
 To send data to an I²C peripheral, you can publish a message to the I²C node. For example, to transmit the byte `0x42` using the command `0x01` to the I²C address `0x42`, you could use the following command:
 
