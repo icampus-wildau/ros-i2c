@@ -93,6 +93,10 @@ class I2CNode(Node):
         for s in self.publishers:
             self.get_logger().info(f"Publishing: {s.topic_name:<25} | Msg-Type: {str(s.msg_type)}")
 
+        self.get_logger().info("#### SERVICES ####")
+        for s in self.services:
+            self.get_logger().info(f"Service: {s.srv_name:<50} | Srv-Type: {str(s.srv_type)}")
+
         ################################
 
     ##########################################
