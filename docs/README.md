@@ -76,11 +76,11 @@ include_parameters = True
 -->
 ## ROS Nodes
 
-|Package|Name            |Info                                                     |Script                                        |
-|-------|----------------|---------------------------------------------------------|----------------------------------------------|
-|ros_i2c|[i2c](#i2c-node)|ROS 2 node offering I²C functionality to other ROS nodes.|[ros_i2c.bridge](../ros_i2c/ros_i2c/bridge.py)|
+|Package|Name                  |Info                                                     |Script                                        |
+|-------|----------------------|---------------------------------------------------------|----------------------------------------------|
+|ros_i2c|[bridge](#bridge-node)|ROS 2 node offering I²C functionality to other ROS nodes.|[ros_i2c.bridge](../ros_i2c/ros_i2c/bridge.py)|
 
-### `i2c` Node
+### `bridge` Node
 
 ROS 2 node offering I²C functionality to other ROS nodes.
 

@@ -23,7 +23,7 @@ setup(
     tests_require=["pytest"],
     entry_points={
         "console_scripts": [
-            "i2c = ros_i2c.bridge:main",
+            "bridge = ros_i2c.bridge:main",
         ],
     },
 )
