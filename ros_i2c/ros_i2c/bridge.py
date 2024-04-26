@@ -99,7 +99,8 @@ class I2CNode(Node):
     ### Internal Helper Functions
     ##########################################
 
-    def _int_to_uint8(x):
+    @staticmethod
+    def _int_to_uint8(x: int):
         return x % 256
 
     def _get_device(self, address: int) -> SmbusDevice:
