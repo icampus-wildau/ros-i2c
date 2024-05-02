@@ -53,6 +53,174 @@ def publish_word(self, cmd: int, data: int):
 Source of the above code: [examples/publishing.py](./../examples/publishing.py).
 <!-- MD+FIN:include.example -->
 
+# Detailed Publishing Examples
+
+The following examples demonstrate each of the available ROS topics individually. You may use the [included Arduino script](../examples/arduino/receive.ino) to program an Arduino to act as an I²C device, interpreting and echoing the commands/data to the Arduino's serial connection.
+
+<!-- MD+:include.example
+header = 'Writing a single Byte'
+level = 2
+path = '../examples/write_byte.py'
+-->
+## Writing a single Byte
+
+This script writes a single byte (0x42) to the I²C device at address 0x01
+using command 0x01. It does so by publishing to the `i2c/write_byte` topic.
+
+```python
+# Create a new publisher to write a single byte to an I²C device.
+i2c_write_byte = node.create_publisher(WriteByte, "i2c/write_byte", 10)
+
+message = WriteByte(address=0x01, command=0x1, data=0x42)
+
+# Publish the message with the data.
+node.get_logger().info(f"i2c/write_byte: {message}")
+i2c_write_byte.publish(message)
+```
+
+Source of the above code: [examples/write_byte.py](./../examples/write_byte.py).
+<!-- MD+FIN:include.example -->
+
+<!-- MD+:include.example
+header = 'Writing a single Word'
+level = 2
+path = '../examples/write_word.py'
+-->
+## Writing a single Word
+
+This script writes a single word (0x4237) to the I²C device at address 0x01
+using command 0x02. It does so by publishing to the `i2c/write_word` topic.
+
+```python
+# Create a new publisher to write a single word to an I²C device.
+i2c_write_word = node.create_publisher(WriteWord, "i2c/write_word", 10)
+
+message = WriteWord(address=0x01, command=0x2, data=0x4237)
+
+# Publish the message with the data.
+node.get_logger().info(f"i2c/write_word: {message}")
+i2c_write_word.publish(message)
+```
+
+Source of the above code: [examples/write_word.py](./../examples/write_word.py).
+<!-- MD+FIN:include.example -->
+
+<!-- MD+:include.example
+header = 'Writing "Hello, World!"'
+level = 2
+path = '../examples/write_hello_world.py'
+-->
+## Writing "Hello, World!"
+
+This script writes "Hello, World!" to the I²C device at address 0x01 using
+command 0x80. It does so by publishing to the `i2c/write_array` topic.
+
+```python
+# Create a new publisher to write multiple bytes to an I²C device.
+i2c_write_array = node.create_publisher(WriteArray, "i2c/write_array", 10)
+
+data = "Hello, World!".encode("ascii")  # The data to write to the device.
+message = WriteArray(address=0x01, command=0x80, data=data, write_length=False)
+
+# Publish the message with the data.
+node.get_logger().info(f"i2c/write_array: {message}")
+i2c_write_array.publish(message)
+```
+
+Source of the above code: [examples/write_hello_world.py](./../examples/write_hello_world.py).
+<!-- MD+FIN:include.example -->
+
+# Detailed Service Examples
+
+The following examples demonstrate each of the available ROS services individually. You may use the [included Arduino script](../examples/arduino/receive.ino) to program an Arduino to act as an I²C device, interpreting and echoing the commands/data to the Arduino's serial connection.
+
+In contrast to the [Detailed Publishing Examples](#detailed-publishing-examples) above, the scripts below allow the inspection of the success status of the write operation using the response of the ROS service call.
+
+<!-- MD+:include.example
+header = 'Writing a single Byte'
+level = 2
+path = '../examples/try_write_byte.py'
+-->
+## Writing a single Byte
+
+This script tries to write a single byte (0x42) to the I²C device at address
+0x01 using command 0x01. It does so by using the `i2c/try_write_byte` service.
+
+```python
+# Create a new service client for writing a single byte to an I²C device.
+i2c_try_write_byte = node.create_client(TryWriteByte, "i2c/try_write_byte")
+
+message = WriteByte(address=0x01, command=0x1, data=0x42)
+
+# Call the service with the data/message.
+request = TryWriteByte.Request(message=message)
+node.get_logger().debug(f"i2c/try_write_byte: {request}")
+future = i2c_try_write_byte.call_async(request)
+
+# Wait until the service call completes.
+rclpy.spin_until_future_complete(node, future)
+```
+
+Source of the above code: [examples/try_write_byte.py](./../examples/try_write_byte.py).
+<!-- MD+FIN:include.example -->
+
+<!-- MD+:include.example
+header = 'Writing a single Word'
+level = 2
+path = '../examples/try_write_word.py'
+-->
+## Writing a single Word
+
+This script tries to write a single word (0x4237) to the I²C device at address
+0x01 using command 0x02. It does so by using the `i2c/try_write_word` service.
+
+```python
+# Create a new service client for writing a single word to an I²C device.
+i2c_try_write_word = node.create_client(TryWriteWord, "i2c/try_write_word")
+
+message = WriteWord(address=0x01, command=0x2, data=0x4237)
+
+# Call the service with the data/message.
+request = TryWriteWord.Request(message=message)
+node.get_logger().debug(f"i2c/try_write_word: {request}")
+future = i2c_try_write_word.call_async(request)
+
+# Wait until the service call completes.
+rclpy.spin_until_future_complete(node, future)
+```
+
+Source of the above code: [examples/try_write_word.py](./../examples/try_write_word.py).
+<!-- MD+FIN:include.example -->
+
+<!-- MD+:include.example
+header = 'Writing "Hello, World!"'
+level = 2
+path = '../examples/try_write_hello_world.py'
+-->
+## Writing "Hello, World!"
+
+This script tries to write "Hello, World!" to the I²C device at address 0x01
+using command 0x80. It does so by using the `i2c/try_write_array` service.
+
+```python
+# Create a new service client for writing multiple bytes to an I²C device.
+i2c_try_write_array = node.create_client(TryWriteArray, "i2c/try_write_array")
+
+data = "Hello, World!".encode("ascii")  # The data to write to the device.
+message = WriteArray(address=0x01, command=0x80, data=data, write_length=False)
+
+# Call the service with the data/message.
+request = TryWriteArray.Request(message=message)
+node.get_logger().debug(f"i2c/try_write_array: {request}")
+future = i2c_try_write_array.call_async(request)
+
+# Wait until the service call completes.
+rclpy.spin_until_future_complete(node, future)
+```
+
+Source of the above code: [examples/try_write_hello_world.py](./../examples/try_write_hello_world.py).
+<!-- MD+FIN:include.example -->
+
 # ROS I²C Specification
 
 <!-- MD+:ros.launchs
