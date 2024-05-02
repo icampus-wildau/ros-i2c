@@ -1,5 +1,5 @@
-"""This script writes a single word (0x4237) to the I²C device at address 0x01
-using command 0x02. It does so by publishing to the `i2c/write_word` topic.
+"""This script writes a single word (`0x4237`) to the I²C device at address `0x01`
+using command `0x02`. It does so by publishing to the `i2c/write_word` topic.
 """
 
 # MD+flag:IGNORE:START
@@ -20,8 +20,11 @@ i2c_write_word = node.create_publisher(WriteWord, "i2c/write_word", 10)
 
 message = WriteWord(address=0x01, command=0x2, data=0x4237)
 
-# Publish the message with the data.
+# MD+flag:IGNORE:START
 node.get_logger().info(f"i2c/write_word: {message}")
+# MD+flag:IGNORE:END
+
+# Publish the message with the data.
 i2c_write_word.publish(message)
 
 
