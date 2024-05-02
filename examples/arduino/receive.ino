@@ -15,10 +15,12 @@ void loop()
 
 void receive(int length)
 {
-    int command = Wire.read();
+    byte command = Wire.read();
 
-    Serial.print("[");
+    Serial.print("[0x");
     Serial.print(command, 16);
+    Serial.print("; ");
+    Serial.print(length - 1);
     Serial.print("] ");
 
     if (command == 0x01)
