@@ -28,6 +28,16 @@ void receive(int length)
         Serial.print("0x");
         Serial.print(b, 16);
     }
+    else if (command == 0x02)
+    {
+        byte l = Wire.read();
+        byte h = Wire.read();
+
+        int w = (h << 8) | l;
+
+        Serial.print("0x");
+        Serial.print(w, 16);
+    }
     else if (command == 0x80)
     {
         for (int i = 1; i < length; i++)
