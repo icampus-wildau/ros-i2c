@@ -264,7 +264,7 @@ class SmbusDevice:
 
         Parameters
         ----------
-        slave_address : int
+        device_address : int
             The address of the i2c device.
 
         exception_count : int, optional
@@ -282,21 +282,21 @@ class SmbusDevice:
         """The bus to write to"""
 
         self.address = device_address
-        """The address of the slave the exception logger is for"""
+        """The address of the I²C device the exception logger is for"""
 
         self.last_time_tried: int = 0
-        """The last time the slave was tried"""
+        """The last time the I²C device was last tried"""
 
         self.current_exception_count = 1
-        """How many subsequent exceptions are allowed before the slave is considered dead"""
+        """How many subsequent exceptions are allowed before the I²C device is considered dead"""
 
         self._max_exception_count = exception_count
         self._exception_timeout_sec = exception_timeout_sec
 
     def is_alive(self):
         """
-        If the exception count is reached, the slave is considered dead
-        After the given timeout, the slave is considered alive again.
+        If the exception count is reached, the I²C device is considered dead
+        After the given timeout, the I²C device is considered alive again.
         """
         if not self._node.enable_exception_tracking:
             return True
@@ -336,7 +336,7 @@ class SmbusDevice:
                 else:
                     return False
             except Exception as e:
-                self._node.get_logger().error(f"I²C Slave @ {self.address} has a timeout at writing data.")
+                self._node.get_logger().error(f"I²C device @ {self.address} has a timeout at writing data.")
                 self.last_time_tried = time.time()
                 self.current_exception_count += 1
 
