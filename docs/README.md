@@ -255,8 +255,8 @@ Source: [ros_i2c_interfaces/srv/TryWriteByte.srv](../ros_i2c_interfaces/srv/TryW
 #### `TryWriteWord`
 
 ```python
-# A `WriteByte` message specifying the data to write.
-WriteByte message
+# A `WriteWord` message specifying the data to write.
+WriteWord message
 ---
 # A flag indicating the success of this operation if set. Defaults to `true`.
 bool success true
