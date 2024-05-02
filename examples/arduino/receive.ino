@@ -21,10 +21,20 @@ void receive(int length)
     Serial.print(command, 16);
     Serial.print("] ");
 
-    for (int i = 1; i < length; i++)
+    if (command == 0x01)
     {
-        char c = Wire.read();
-        Serial.print(c);
+        byte b = Wire.read();
+
+        Serial.print("0x");
+        Serial.print(b, 16);
+    }
+    else if (command == 0x80)
+    {
+        for (int i = 1; i < length; i++)
+        {
+            char c = Wire.read();
+            Serial.print(c);
+        }
     }
 
     Serial.println();
