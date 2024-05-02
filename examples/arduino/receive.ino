@@ -49,5 +49,17 @@ void receive(int length)
         }
     }
 
+    if (Wire.available())
+    {
+        Serial.print(" + ");
+
+        // Discard unused bytes.
+        while (Wire.available())
+        {
+            char c = Wire.read();
+            Serial.print(c);
+        }
+    }
+
     Serial.println();
 }
