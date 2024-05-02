@@ -1,5 +1,5 @@
 """This script tries to write "Hello, World!" to the I²C device at address 0x01
-using command 0x01. It does so by using the `i2c/try_write_array` service.
+using command 0x80. It does so by using the `i2c/try_write_array` service.
 """
 
 # MD+flag:IGNORE:START
@@ -21,8 +21,8 @@ node = rclpy.create_node("try_write_hello_word_node")
 # Create a new service client for writing multiple bytes to an I²C device.
 i2c_try_write_array = node.create_client(TryWriteArray, "i2c/try_write_array")
 
-data = "Hello, World!".encode("ascii")  # The date to write to the device.
-message = WriteArray(address=0x01, command=0x1, data=data, write_length=False)
+data = "Hello, World!".encode("ascii")  # The data to write to the device.
+message = WriteArray(address=0x01, command=0x80, data=data, write_length=False)
 
 # Call the service with the data/message.
 request = TryWriteArray.Request(message=message)
@@ -38,13 +38,12 @@ rclpy.spin_until_future_complete(node, future)
 node.destroy_node()
 rclpy.shutdown()
 
-# MD+flag:IGNORE:END
-
-
 if future.result().success:
-    print("Wrote 'Hello, World!' to 0x01 using command 0x01.")
+    print("Wrote 'Hello, World!' to 0x01 using command 0x80.")
 
 else:
     print("Failed to write to I²C device at 0x01.", file=sys.stderr)
 
     exit(1)
+
+# MD+flag:IGNORE:END
