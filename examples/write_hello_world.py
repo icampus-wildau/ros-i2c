@@ -1,3 +1,8 @@
+# Copyright 2024 iCampus Wildau.
+#
+# Licensed under the Apache License, Version 2.0.
+# See LICENSE in the project root for license information.
+
 """This script writes `"Hello, World!"` to the I²C device at address `0x01` using
 command `0x80`. It does so by publishing to the `i2c/write_array` topic.
 """

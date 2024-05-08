@@ -33,3 +33,25 @@ repos:
     hooks:
       - id: black
         args: ["--line-length", "120"]
+
+  # Add a license header to all source files.
+  - repo: https://github.com/Lucas-C/pre-commit-hooks
+    rev: v1.5.5
+    hooks:
+      - id: insert-license
+        files: \.(msg|py|srv)$
+        args:
+          - --use-current-year
+          - --license-filepath
+          - docs/LICENSE.txt
+          - --comment-style
+          - "#"
+
+      - id: insert-license
+        files: \.(ino)$
+        args:
+          - --use-current-year
+          - --license-filepath
+          - docs/LICENSE.txt
+          - --comment-style
+          - "//"

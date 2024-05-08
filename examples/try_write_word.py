@@ -1,3 +1,8 @@
+# Copyright 2024 iCampus Wildau.
+#
+# Licensed under the Apache License, Version 2.0.
+# See LICENSE in the project root for license information.
+
 """This script tries to write a single word (`0x4237`) to the I²C device at address
 `0x01` using command `0x02`. It does so by using the `i2c/try_write_word` service.
 """
