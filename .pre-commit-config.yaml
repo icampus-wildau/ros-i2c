@@ -1,21 +1,23 @@
 repos:
-  # Markdown plus
+  # Markdown Plus
   - repo: https://github.com/icampus-wildau/markdown-plus
     rev: 0.1.4
     hooks:
       - id: mdplus-parse
 
-  # Batch of helpful formatters and patterns
+  # A batch of helpful formatters and patterns.
   - repo: https://github.com/pre-commit/pre-commit-hooks
     rev: "v4.6.0"
     hooks:
-      - id: trailing-whitespace
-      - id: end-of-file-fixer
       - id: check-docstring-first
       - id: debug-statements
+      - id: detect-private-key
+      - id: end-of-file-fixer
       - id: mixed-line-ending
+      - id: requirements-txt-fixer
+      - id: trailing-whitespace
 
-  # Adds a standard feel to import segments
+  # Add a standard feel to Python imports.
   - repo: https://github.com/pycqa/isort
     rev: 5.13.2
     hooks:
@@ -27,7 +29,7 @@ repos:
           - "--profile"
           - "black"
 
-  # Format code. No, I don't like everything black does either.
+  # Format Python code using the Black formatter.
   - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 24.4.1
     hooks:
@@ -43,7 +45,7 @@ repos:
         args:
           - --use-current-year
           - --license-filepath
-          - docs/LICENSE.txt
+          - docs/LICENSE.header
           - --comment-style
           - "#"
 
@@ -52,6 +54,6 @@ repos:
         args:
           - --use-current-year
           - --license-filepath
-          - docs/LICENSE.txt
+          - docs/LICENSE.header
           - --comment-style
           - "//"

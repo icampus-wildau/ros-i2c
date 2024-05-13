@@ -101,7 +101,7 @@ md_files = False
 |Directory                                 |Content                                                                  |
 |------------------------------------------|-------------------------------------------------------------------------|
 |[`docs`](docs)                            |The documentation for the ROS I²C package.                               |
-|[`examples`](examples)                    |Basic usage examples for the package.                                    |
+|[`examples`](examples)                    |Examples for the ROS I²C package.                                        |
 |[`ros_i2c`](ros_i2c)                      |Python package containing the ROS I²C nodes.                             |
 |[`ros_i2c_interfaces`](ros_i2c_interfaces)|ROS interface package containing the I²C message and service definitions.|
 <!-- MD+FIN:generate.content -->
@@ -116,10 +116,9 @@ If you encounter any problems, please [open an issue](https://github.com/icampus
 
 # Contributing
 
-Contributions to extend the functionality or to solve existing problems are welcome! Requirements for pull requests are:
-- All code is tested
-- Naming is consistent with project naming
-- Commits are squashed and contain a clear commit message describing what functionality is added.
+**Any contributions to extend the functionality or to solve existing problems are welcome!**
+
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file before contributing to this project and follow the guidelines provided there. Also, make sure to read and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
 
 # Related Projects
 
