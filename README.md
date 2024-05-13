@@ -118,7 +118,7 @@ If you encounter any problems, please [open an issue](https://github.com/icampus
 
 **Any contributions to extend the functionality or to solve existing problems are welcome!**
 
-Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file before contributing to this project and follow the guidelines provided there. Also, make sure to read and follow the [Code of Conduct](CODE_OF_CONDUCT.md).
+Please read the [CONTRIBUTING.md](CONTRIBUTING.md) file before contributing to this project and follow the guidelines provided there. Also, make sure to read and follow the [Code of Conduct](https://github.com/icampus-wildau/.github/blob/main/.github/CODE_OF_CONDUCT.md).
 
 # Related Projects
 
