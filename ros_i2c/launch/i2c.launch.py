@@ -14,7 +14,7 @@ def generate_launch_description():
     description = LaunchDescription()
 
     bridge_node = Node(
-        executable="bridge",
+        executable="i2c",
         package="ros_i2c",
     )
 

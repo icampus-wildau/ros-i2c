@@ -23,6 +23,23 @@ from ros_i2c_interfaces.srv import TryWriteByte
 from ros_i2c_interfaces.srv import TryWriteWord
 
 
+def main(args=None):
+    rclpy.init(args=args)
+
+    node = I2CNode()
+
+    try:
+        rclpy.spin(node)
+    except Exception as e:
+        node.get_logger().error(e)
+    except KeyboardInterrupt as e:
+        pass
+    finally:
+        node.on_shutdown()
+        node.destroy_node()
+        rclpy.try_shutdown()
+
+
 class I2CNode(Node):
     """ROS 2 node offering I²C functionality to other ROS nodes.
 
@@ -230,23 +247,6 @@ class I2CNode(Node):
         response.success = self._get_device(msg.address).write_word(msg.command, msg.data)
 
         return response
-
-
-def main(args=None):
-    rclpy.init(args=args)
-
-    node = I2CNode()
-
-    try:
-        rclpy.spin(node)
-    except Exception as e:
-        node.get_logger().error(e)
-    except KeyboardInterrupt as e:
-        pass
-    finally:
-        node.on_shutdown()
-        node.destroy_node()
-        rclpy.try_shutdown()
 
 
 class SmbusDevice:
